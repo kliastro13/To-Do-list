@@ -14,33 +14,88 @@
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/main.js"></script>
   </head>
-  <body>
-    <div class="globalWrapper">
-      <header class="section" id="header">
-        <h1>To-DO list</h1>
+
+  <body class="p-4 min-vh-100">
+    <div class="container-md d-flex flex-column border rounded p-0 myDiv">
+      <header class="text-center p-2 bg-primary bg-opacity-50 mb-4 rounded-top">
+        <h1>To-Do list</h1>
       </header>
 
-      <main class="section" id="main">
-        <div class="container" id="additionBlockContainer">
-          <input type="text" id="taskInput" placeholder="Add a new task" />
-          <button class="addButton" id="addButton">Add task</button>
+      <main class="p-4">
+        <div class="row mb-4" id="addContainer">
+          <div class="col-9">
+            <input
+              type="text"
+              class="d-block w-100"
+              id="taskInput"
+              placeholder="Add a new task"
+            />
+          </div>
+          <div class="col-3">
+            <button class="btn btn-primary btn-sm d-block w-100" id="addButton">
+              Add task
+            </button>
+          </div>
         </div>
-        <div class="container" id="taskContainer">
-          <ul class="taskList" id="taskList">
-            <li class="taskListItem">Example task 1</li>
-            <li class="taskListItem">Example task 2</li>
-            <li class="taskListItem">Example task 3</li>
-            <li class="taskListItem">Example task 4</li>
-            <li class="taskListItem">Example task 5</li>
-            <!--try to add a select with a choice of priority-->
-            <!--try to add date field-->
-            <!--try to add deadline field-->
-          </ul>
-        </div>
+
+        <table
+          class="table table-striped table-bordered table-success text-center"
+        >
+          <thead>
+            <tr class="table-info">
+              <th scope="col-1">№</th>
+              <th scope="col-2">Date</th>
+              <th scope="col-8">Task</th>
+              <th scope="col-1">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">1</th>
+              <td>13.06.22</td>
+              <td>Create To-Do list</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+            <tr class="text-decoration-line-through">
+              <th scope="row">2</th>
+              <td>14.06.22</td>
+              <td>Create html structure</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>15.06.22</td>
+              <td>Use bootstrap</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>16.06.22</td>
+              <td>Read about frame works and libraries</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>17.06.22</td>
+              <td>Add some element using JS</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>18.06.22</td>
+              <td>Rafactoring</td>
+              <td><img src="img/x-octagon.svg" /></td>
+            </tr>
+          </tbody>
+        </table>
       </main>
 
-      <footer class="section" id="footer">
-        <p>&copy;kliastro <time datetime="2022-06-12">2022</time></p>
+      <footer
+        class="mt-auto text-end bg-primary bg-opacity-50 rounded-bottom p-2"
+      >
+        <p class="m-0">
+          &copy;kliastro <time datetime="2022-06-12">2022</time>
+        </p>
       </footer>
     </div>
     <!--global_wrapper-->
