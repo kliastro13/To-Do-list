@@ -1,3 +1,27 @@
-.myDiv {
-  min-height: calc(100vh - 3rem);
+/* CSS HSL */
+/* --black: hsla(0, 0%, 0%, 1);
+--slimy-green: hsla(135, 93%, 32%, 1);
+--portland-orange: hsla(10, 97%, 59%, 1);
+--magnolia: hsla(280, 23%, 95%, 1);
+--dodger-blue: hsla(206, 88%, 55%, 1); */
+
+.primary-bgc {
+  background: hsla(280, 23%, 95%, 1);
+}
+
+.secondary-bgc {
+  background: hsla(209, 96%, 56%, 1);
+}
+
+.clickable-bgc {
+  background: hsla(10, 97%, 59%, 1);
+}
+
+.done-bgc {
+  background: hsla(135, 93%, 32%, 1);
+}
+
+input::placeholder {
+  /* WebKit browsers */
+  color: black;
 }
