@@ -3,22 +3,15 @@ class ListElement {
     this.number = number; //will get value from function getElNumber
     this.date = date; //will get value from function getCurrDate
     this.value = value; //will get value from function getinputValue
-    //this.elementDel = elementDel;
+    this.elementDel = `<i class="bi bi-x-octagon" id="${number}">`;
   }
 
   inject() {
     const tableRow = document.createElement("tr");
-    tableRow.innerHTML = `<th scope="row">${this.number}</th><td>${this.date}</td><td>${this.value}</td><td><i class="bi bi-x-octagon"></i></td>`;
+    //tableRow.setAttribute("id", this.number);
+    tableRow.innerHTML = `<th scope="row">${this.number}</th><td>${this.date}</td><td>${this.value}</td><td>${this.elementDel}</td>`;
     document.getElementById("task-list").appendChild(tableRow);
     document.getElementById("task-input").value = "";
-  }
-
-  validate() {
-    if (!this.value) {
-      alert("You must write something!");
-    } else {
-      this.inject();
-    }
   }
 }
 
@@ -44,4 +37,18 @@ function getCurrDate() {
 function getinputValue() {
   const inputValue = document.getElementById("task-input").value;
   return inputValue;
+}
+
+function validate(value) {
+  if (!value) {
+    alert("You must write something!");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function delElement(number) {
+  console.log("something");
+  document.getElementById(number).parentElement.parentElement.remove();
 }
