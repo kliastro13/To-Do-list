@@ -1,25 +1,25 @@
 class ListElement {
-  constructor(number, date, value) {
-    this.number = number; //will get value from function getElNumber
+  constructor(id, date, value, listId, inputId) {
+    this.id = id; //will get value from function getElNumber
     this.date = date; //will get value from function getCurrDate
     this.value = value; //will get value from function getinputValue
-    this.elementDel = `<i class="bi bi-x-octagon" id="${number}">`;
+    this.elementDel = `<i class="bi bi-x-octagon" id="${id}">`;
+    this.listId = listId;
+    this.inputId = inputId;
   }
 
   inject() {
     const tableRow = document.createElement("tr");
     //tableRow.setAttribute("id", this.number);
-    tableRow.innerHTML = `<th scope="row">${this.number}</th><td>${this.date}</td><td>${this.value}</td><td>${this.elementDel}</td>`;
-    document.getElementById("task-list").appendChild(tableRow);
-    document.getElementById("task-input").value = "";
+    tableRow.innerHTML = `<th scope="row">${this.id}</th><td>${this.date}</td><td>${this.value}</td><td>${this.elementDel}</td>`;
+    document.getElementById(this.listId).appendChild(tableRow);
+    document.getElementById(this.inputId).value = "";
   }
 }
 
-function getElNumber() {
+function getElNumber(id) {
   const elementPosition = 1;
-  let numb =
-    document.getElementById("task-list").childElementCount + elementPosition;
-  return numb;
+  return document.getElementById(id).childElementCount + elementPosition;
 }
 
 function getCurrDate() {
@@ -34,9 +34,8 @@ function getCurrDate() {
   return `${today.getDate()}.${dateMonth}.${today.getFullYear()}`;
 }
 
-function getinputValue() {
-  const inputValue = document.getElementById("task-input").value;
-  return inputValue;
+function getInputValue(id) {
+  return document.getElementById(id).value;
 }
 
 function validate(value) {
