@@ -47,7 +47,6 @@ function validate(value) {
   }
 }
 
-function delElement(number) {
-  console.log("something");
-  document.getElementById(number).parentElement.parentElement.remove();
+function delElement(id) {
+  document.getElementById(id).parentElement.parentElement.remove();
 }
