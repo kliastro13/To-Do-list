@@ -19,5 +19,6 @@ function readAllStore() {
       Object.assign(new ListElement(), JSON.parse(sessionStorage.getItem(key)))
     )
   );
+  dataArray.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
   return dataArray;
 }
