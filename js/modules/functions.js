@@ -1,22 +1,3 @@
-class ListElement {
-  constructor(id, date, value, listId, inputId) {
-    this.id = id; //will get value from function getElNumber
-    this.date = date; //will get value from function getCurrDate
-    this.value = value; //will get value from function getinputValue
-    this.elementDel = `<i class="bi bi-x-octagon" id="${id}">`;
-    this.listId = listId;
-    this.inputId = inputId;
-  }
-
-  inject() {
-    const tableRow = document.createElement("tr");
-    //tableRow.setAttribute("id", this.number);
-    tableRow.innerHTML = `<th scope="row">${this.id}</th><td>${this.date}</td><td>${this.value}</td><td>${this.elementDel}</td>`;
-    document.getElementById(this.listId).appendChild(tableRow);
-    document.getElementById(this.inputId).value = "";
-  }
-}
-
 function getElNumber(id) {
   const elementPosition = 1;
   return document.getElementById(id).childElementCount + elementPosition;
@@ -49,4 +30,13 @@ function validate(value) {
 
 function delElement(id) {
   document.getElementById(id).parentElement.parentElement.remove();
+}
+
+function injectSavedElements(readAllStore, taskList) {
+  window.addEventListener("load", (event) => {
+    taskList = readAllStore();
+    if (taskList.length > 0) {
+      taskList.forEach((element) => element.inject());
+    }
+  });
 }
