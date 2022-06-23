@@ -32,11 +32,9 @@ function delElement(id) {
   document.getElementById(id).parentElement.parentElement.remove();
 }
 
-function injectSavedElements(readAllStore, taskList) {
-  window.addEventListener("load", (event) => {
-    taskList = readAllStore();
-    if (taskList.length > 0) {
-      taskList.forEach((element) => element.inject());
-    }
-  });
-}
+/* function injectSavedElements(readAllStore, taskList, eventHandler) {
+  taskList = readAllStore();
+  if (taskList.length > 0) {
+    taskList.forEach((element) => element.inject(eventHandler, taskList));
+  }
+} */

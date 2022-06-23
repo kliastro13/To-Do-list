@@ -4,6 +4,7 @@ function eventHandler(event, element, taskList, deteleTaskItem) {
 
   for (let i = element.id - 1; i < taskList.length; i++) {
     delElement(taskList[i].id);
+    deleteFromStore(taskList[i].id);
   }
 
   for (let i = element.id - 1; i < taskList.length - 1; i++) {
@@ -13,6 +14,7 @@ function eventHandler(event, element, taskList, deteleTaskItem) {
       i
     ].elementDel = `<i class="bi bi-x-octagon" id="${taskList[i].id}">`;
     taskList[i].inject();
+    saveOrUpdateToStore(taskList[i]);
     document
       .getElementById(taskList[i].id)
       .addEventListener("click", deteleTaskItem);
