@@ -11,9 +11,7 @@ function getCurrDate() {
 
 function validate(value) {
   if (!value) {
-    alert("You must write something!");
     return false;
-  } else {
-    return true;
   }
+  return true;
 }

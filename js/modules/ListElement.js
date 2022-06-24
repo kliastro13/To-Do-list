@@ -1,26 +1,21 @@
 class ListElement {
-  constructor(id, date, value, listId, inputId) {
+  constructor(id, date, value) {
     this.id = id;
     this.date = date;
     this.value = value;
-    this.elementDel = `<i class="bi bi-trash" id="${id}-del-btn">`;
-    this.listId = listId;
-    this.inputId = inputId;
   }
 
-  inject(eventHandler, taskList) {
+  inject(deleteTaskHandler) {
+    const taskListId = "task-list";
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
     tableRow.innerHTML = `<th scope="row">${this.id}</th><td>${this.date}</td>`;
-    tableRow.innerHTML += `<td>${this.value}</td><td>${this.elementDel}</td>`;
-    document.getElementById(this.listId).appendChild(tableRow);
-    document.getElementById(this.inputId).value = "";
+    tableRow.innerHTML += `<td>${this.value}</td>`;
+    tableRow.innerHTML += `<td class="del-btn"><i class="bi bi-trash" id="${this.id}-del-btn"></td>`;
+    document.getElementById(taskListId).appendChild(tableRow);
 
-    const delBtn = document.getElementById(`${this.id}-del-btn`);
-    const deteleTaskItem = (event) => {
-      eventHandler(this, taskList);
-    };
-    delBtn.addEventListener("click", deteleTaskItem);
+    const deleteBtn = document.getElementById(`${this.id}-del-btn`);
+    deleteBtn.addEventListener("click", () => deleteTaskHandler(this));
   }
 
   delete() {

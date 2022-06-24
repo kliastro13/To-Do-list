@@ -1,4 +1,4 @@
-function eventHandler(element, taskList) {
+function deleteTaskItem(element) {
   deleteFromStore(element.id);
   for (let i = element.id - 1; i < taskList.length; i++) {
     taskList[i].delete();
@@ -8,31 +8,27 @@ function eventHandler(element, taskList) {
   for (let i = element.id - 1; i < taskList.length - 1; i++) {
     taskList[i] = taskList[i + 1];
     taskList[i].id--;
-    taskList[
-      i
-    ].elementDel = `<i class="bi bi-trash" id="${taskList[i].id}-del-btn">`;
-    taskList[i].inject(eventHandler, taskList);
+    taskList[i].inject(deleteTaskItem);
     saveOrUpdateToStore(taskList[i]);
   }
   taskList.pop();
 }
 
-function addNewElement() {
+function addTaskItem() {
+  const taskInputId = "task-input";
   const inputValue = document.getElementById(taskInputId).value;
   if (!validate(inputValue)) {
+    alert("You must write something!");
     return;
   }
-
-  const nextId = document.getElementById(taskListId).childElementCount + 1;
   const element = new ListElement(
-    nextId,
+    taskList.length + 1,
     getCurrDate(),
-    inputValue,
-    taskListId,
-    taskInputId
+    inputValue
   );
 
   taskList.push(element);
   saveOrUpdateToStore(element);
-  element.inject(eventHandler, taskList);
+  element.inject(deleteTaskItem);
+  document.getElementById(taskInputId).value = "";
 }

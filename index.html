@@ -26,26 +26,24 @@
           <div class="col-9">
             <input
               type="text"
-              class="d-block w-100 text-dark primary-bgc border-dark rounded"
+              class="d-block w-100 rounded"
               id="task-input"
               placeholder="Add a new task"
             />
           </div>
           <div class="col-3">
             <button
-              class="btn btn-sm d-block w-100 fw-bold clickable-bgc"
+              class="btn-md w-100 fw-bold rounded btn-bgc spinner-border-sm"
               id="add-btn"
-              onclick="addNewElement()"
+              onclick="addTaskItem()"
             >
               Add task
             </button>
           </div>
         </div>
 
-        <table
-          class="table table-bordered table-hover text-center secondary-bgc border-dark"
-        >
-          <thead>
+        <table class="table table-bordered table-hover text-center border-dark">
+          <thead class="secondary-bgc">
             <tr>
               <th scope="col" class="col-1">№</th>
               <th scope="col" class="col-2">Date</th>

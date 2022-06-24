@@ -6,7 +6,7 @@
 // Then add additional custom code here
 
 $colors: (
-  "blue": red,
+  "blue": $blue,
   "indigo": $indigo,
   "purple": $purple,
   "pink": $pink,
@@ -21,3 +21,25 @@ $colors: (
   "gray": $gray-600,
   "gray-dark": $gray-800,
 );
+
+.primary-bgc {
+  background: hsla(60, 100%, 99%, 1);
+}
+
+.secondary-bgc {
+  background: hsla(34, 100%, 63%, 1);
+}
+
+.btn-bgc {
+  background: hsla(184, 13%, 43%, 1);
+}
+
+.btn-bgc:hover {
+  background: hsla(184, 13%, 43%, 0.5);
+  transition: 0.3s;
+}
+
+.del-btn:hover {
+  background: hsla(184, 13%, 43%, 1);
+  transition: 0.3s;
+}

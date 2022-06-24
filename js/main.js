@@ -1,10 +1,8 @@
-const taskInputId = "task-input";
-const taskListId = "task-list";
 let taskList = [];
 
-window.addEventListener("load", (event) => {
+window.addEventListener("load", () => {
   taskList = readAllStore(() => new ListElement());
   if (taskList.length > 0) {
-    taskList.forEach((element) => element.inject(eventHandler, taskList));
+    taskList.forEach((element) => element.inject(deleteTaskItem));
   }
 });
