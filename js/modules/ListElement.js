@@ -18,7 +18,7 @@ class ListElement {
 
     const delBtn = document.getElementById(`${this.id}-del-btn`);
     const deteleTaskItem = (event) => {
-      eventHandler(event, this, taskList, deteleTaskItem);
+      eventHandler(this, taskList);
     };
     delBtn.addEventListener("click", deteleTaskItem);
   }
