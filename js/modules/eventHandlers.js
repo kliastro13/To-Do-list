@@ -10,7 +10,7 @@ function eventHandler(element, taskList) {
     taskList[i].id--;
     taskList[
       i
-    ].elementDel = `<i class="bi bi-x-octagon" id="${taskList[i].id}-del-btn">`;
+    ].elementDel = `<i class="bi bi-trash" id="${taskList[i].id}-del-btn">`;
     taskList[i].inject(eventHandler, taskList);
     saveOrUpdateToStore(taskList[i]);
   }

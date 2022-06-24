@@ -3,7 +3,7 @@ class ListElement {
     this.id = id;
     this.date = date;
     this.value = value;
-    this.elementDel = `<i class="bi bi-x-octagon" id="${id}-del-btn">`;
+    this.elementDel = `<i class="bi bi-trash" id="${id}-del-btn">`;
     this.listId = listId;
     this.inputId = inputId;
   }
