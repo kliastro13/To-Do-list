@@ -1,22 +1,22 @@
 function saveOrUpdateToStore(listElement) {
-  if (sessionStorage.getItem(listElement.id)) {
-    sessionStorage[listElement.id] = JSON.stringify(listElement);
+  if (localStorage.getItem(listElement.id)) {
+    localStorage[listElement.id] = JSON.stringify(listElement);
   }
-  sessionStorage.setItem(listElement.id, JSON.stringify(listElement));
+  localStorage.setItem(listElement.id, JSON.stringify(listElement));
 }
 
 function deleteFromStore(id) {
-  if (sessionStorage.getItem(id)) {
-    sessionStorage.removeItem(id);
+  if (localStorage.getItem(id)) {
+    localStorage.removeItem(id);
   }
 }
 
-function readAllStore() {
-  const keys = Object.keys(sessionStorage);
+function readAllStore(getType) {
+  const keys = Object.keys(localStorage);
   const dataArray = [];
   keys.forEach((key) =>
     dataArray.push(
-      Object.assign(new ListElement(), JSON.parse(sessionStorage.getItem(key)))
+      Object.assign(getType(), JSON.parse(localStorage.getItem(key)))
     )
   );
   dataArray.sort(

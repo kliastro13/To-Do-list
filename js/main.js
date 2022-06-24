@@ -1,9 +1,9 @@
 const taskInputId = "task-input";
 const taskListId = "task-list";
 let taskList = [];
-//injectSavedElements(readAllStore, taskList, eventHandler);
+
 window.addEventListener("load", (event) => {
-  taskList = readAllStore();
+  taskList = readAllStore(() => new ListElement());
   if (taskList.length > 0) {
     taskList.forEach((element) => element.inject(eventHandler, taskList));
   }
@@ -15,10 +15,11 @@ function addNewElement() {
     return;
   }
 
+  const nextId = document.getElementById(taskListId).childElementCount + 1;
   const element = new ListElement(
-    getElNumber(taskListId),
+    nextId,
     getCurrDate(),
-    getInputValue(taskInputId),
+    inputValue,
     taskListId,
     taskInputId
   );
@@ -26,10 +27,4 @@ function addNewElement() {
   taskList.push(element);
   saveOrUpdateToStore(element);
   element.inject(eventHandler, taskList);
-
-  /*   const delBtn = document.getElementById(element.id);
-  const deteleTaskItem = function (event) {
-    eventHandler(event, element, taskList, deteleTaskItem);
-  };
-  delBtn.addEventListener("click", deteleTaskItem); */
 }
