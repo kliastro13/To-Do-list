@@ -1,11 +1,24 @@
 // Custom.scss
 // Option A: Include all of Bootstrap
+$primary: red;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
 
-$colors: (
+/* $theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+); */
+
+$blue: green;
+/* $colors: (
   "blue": $blue,
   "indigo": $indigo,
   "purple": $purple,
@@ -20,17 +33,9 @@ $colors: (
   "white": $white,
   "gray": $gray-600,
   "gray-dark": $gray-800,
-);
+); */
 
-.primary-bgc {
-  background: hsla(60, 100%, 99%, 1);
-}
-
-.secondary-bgc {
-  background: hsla(34, 100%, 63%, 1);
-}
-
-.btn-bgc {
+/* .btn-bgc {
   background: hsla(184, 13%, 43%, 1);
 }
 
@@ -42,4 +47,4 @@ $colors: (
 .del-btn:hover {
   background: hsla(184, 13%, 43%, 1);
   transition: 0.3s;
-}
+} */
