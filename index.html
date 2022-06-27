@@ -15,10 +15,10 @@
 
   <body class="min-vh-100 d-flex">
     <div
-      class="container-md d-flex flex-column border rounded p-0 mt-4 mb-4 border-dark"
+      class="container-md d-flex flex-column shadow rounded p-0 mt-4 mb-4 border-dark"
     >
       <header class="text-center p-2 bg-primary mb-4 rounded-top">
-        <h1>To-Do list</h1>
+        <h1>Task manager</h1>
       </header>
 
       <main class="p-4">
@@ -26,37 +26,48 @@
           <div class="col-9">
             <input
               type="text"
-              class="d-block w-100 rounded"
+              class="form-control"
+              list="task-list-options"
               id="task-input"
               placeholder="Add a new task"
             />
+            <datalist id="task-list-options">
+              <option value="Add"></option>
+              <option value="Remove"></option>
+              <option value="Read"></option>
+              <option value="Write"></option>
+              <option value="Remember"></option>
+            </datalist>
           </div>
           <div class="col-3">
             <button
               type="button"
-              class="btn btn-primary btn-sm w-100 fw-bold rounded spinner-border-sm"
+              class="btn btn-secondary w-100 fw-bold"
               id="add-btn"
               onclick="addTaskItem()"
             >
-              Add task
+              Add
             </button>
           </div>
         </div>
-
-        <table class="table table-bordered table-hover text-center border-dark">
-          <thead class="secondary-bgc">
-            <tr>
-              <th scope="col" class="col-1">№</th>
-              <th scope="col" class="col-2">Date</th>
-              <th scope="col" class="col-8">Task</th>
-              <th scope="col" class="col-1">Delete</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider" id="task-list"></tbody>
-        </table>
+        <div class="table-responsive">
+          <table
+            class="table table-bordered table-hover text-center border-dark align-middle"
+          >
+            <thead class="bg-primary">
+              <tr>
+                <th scope="col" class="col-1">№</th>
+                <th scope="col" class="col-2">Date</th>
+                <th scope="col" class="col-8">Task</th>
+                <th scope="col" class="col-1">Delete</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider" id="task-list"></tbody>
+          </table>
+        </div>
       </main>
 
-      <footer class="mt-auto text-end secondary-bgc rounded-bottom p-2">
+      <footer class="mt-auto text-end bg-primary rounded-bottom p-2">
         <p class="m-0 fw-bold">
           &copy;kliastro <time datetime="2022-06-12">2022</time>
         </p>
