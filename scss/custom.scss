@@ -1,14 +1,17 @@
-$body-color: #000;
-
 $primary: #63b995;
-$secondary: #fcab10;
+$danger: #fcab10;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
 
 .delete-btn-container:hover {
-  background-color: $secondary;
+  background-color: $danger;
+  transition: 0.3s;
+}
+
+.delete-btn-container:hover .delete-btn {
+  color: $light;
   transition: 0.3s;
 }
 
