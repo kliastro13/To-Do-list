@@ -1,3 +1,11 @@
+import {
+  saveOrUpdateToStore,
+  deleteFromStore,
+  readAllStore,
+} from "./persistence";
+import { ListElement } from "./ListElement";
+import { validate, getCurrDate } from "./helpers";
+
 function deleteTaskItem(element) {
   deleteFromStore(element.id);
   for (let i = element.id - 1; i < taskList.length; i++) {
@@ -32,3 +40,12 @@ function addTaskItem() {
   element.inject(deleteTaskItem);
   document.getElementById(taskInputId).value = "";
 }
+
+let taskList = [];
+function init() {
+  taskList = readAllStore(() => new ListElement());
+  if (taskList.length > 0) {
+    taskList.forEach((element) => element.inject(deleteTaskItem));
+  }
+}
+export { addTaskItem, init };

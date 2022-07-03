@@ -10,7 +10,7 @@ class ListElement {
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
     const strMaxLength = 80;
-    tableRow.innerHTML = `<th scope="row" class="text-black-50">${this.id}</th><td>${this.date}</td>`;
+    tableRow.innerHTML = `<td scope="row">${this.id}</td><td>${this.date}</td>`;
     if (this.value.length > strMaxLength) {
       const shortValue = this.value.substring(0, strMaxLength) + "...";
       tableRow.innerHTML += `<td title="${this.value}" class="text-start">${shortValue}</td>`;
@@ -28,3 +28,5 @@ class ListElement {
     document.getElementById(this.id).remove();
   }
 }
+
+export { ListElement };

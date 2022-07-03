@@ -1,8 +1,4 @@
-let taskList = [];
+import { addTaskItem, init } from "./modules/eventHandlers";
 
-window.addEventListener("load", () => {
-  taskList = readAllStore(() => new ListElement());
-  if (taskList.length > 0) {
-    taskList.forEach((element) => element.inject(deleteTaskItem));
-  }
-});
+window.addTaskItem = addTaskItem;
+window.addEventListener("load", init);

@@ -24,3 +24,5 @@ function readAllStore(getType) {
   );
   return dataArray;
 }
+
+export { saveOrUpdateToStore, deleteFromStore, readAllStore };
