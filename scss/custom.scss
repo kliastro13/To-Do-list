@@ -5,16 +5,16 @@ $danger: #fcab10;
 
 // Then add additional custom code here
 
-.delete-btn-container:hover {
+.btn-container:hover {
   background-color: $danger;
   transition: 0.3s;
 }
 
-.delete-btn-container:hover .delete-btn {
+.btn-container:hover .func-btn {
   color: $light;
   transition: 0.3s;
 }
 
-.delete-btn {
+.func-btn {
   cursor: pointer;
 }
