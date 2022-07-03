@@ -5,7 +5,7 @@ class ListElement {
     this.value = value;
   }
 
-  inject(deleteTaskHandler) {
+  inject(editTaskItem, deleteTaskItem) {
     const taskListId = "task-list";
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
@@ -13,15 +13,19 @@ class ListElement {
     tableRow.innerHTML = `<td scope="row">${this.id}</td><td>${this.date}</td>`;
     if (this.value.length > strMaxLength) {
       const shortValue = this.value.substring(0, strMaxLength) + "...";
-      tableRow.innerHTML += `<td title="${this.value}" class="text-start">${shortValue}</td>`;
+      tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${this.id}-value">${shortValue}</td>`;
     } else {
-      tableRow.innerHTML += `<td class="text-start">${this.value}</td>`;
+      tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
-    tableRow.innerHTML += `<td class="delete-btn-container text-danger"><i class="bi bi-trash delete-btn" id="${this.id}-del-btn"></td>`;
+    tableRow.innerHTML += `<td class="btn-container text-danger"><i class="bi bi-pencil func-btn" id="${this.id}-edit-btn"></td>`;
+    tableRow.innerHTML += `<td class="btn-container text-danger"><i class="bi bi-trash func-btn" id="${this.id}-del-btn"></td>`;
     document.getElementById(taskListId).appendChild(tableRow);
 
+    const editBtn = document.getElementById(`${this.id}-edit-btn`);
+    editBtn.addEventListener("click", () => editTaskItem(this));
+
     const deleteBtn = document.getElementById(`${this.id}-del-btn`);
-    deleteBtn.addEventListener("click", () => deleteTaskHandler(this));
+    deleteBtn.addEventListener("click", () => deleteTaskItem(this));
   }
 
   delete() {
