@@ -5,16 +5,6 @@ $danger: #fcab10;
 
 // Then add additional custom code here
 
-.btn-container:hover {
-  background-color: $danger;
-  transition: 0.3s;
-}
-
-.btn-container:hover .func-btn {
+.func-btn:hover {
   color: $light;
-  transition: 0.3s;
-}
-
-.func-btn {
-  cursor: pointer;
 }

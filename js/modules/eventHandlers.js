@@ -9,9 +9,9 @@ import { validate, getCurrDate } from "./helpers";
 function editTaskItem(element) {
   const taskTd = document.getElementById(`${element.id}-value`);
   taskTd.innerHTML = `<div class="input-group input-group-sm">
-                      <input type="text" class="col-8 form-control" value="${element.value}" id="${element.id}-edit-input">
-                      <button type="button" class="btn btn-danger text-light" id="${element.id}-save-btn">SAVE</button>
-                      <button type="button" class="btn btn-danger text-light" id="${element.id}-cancel-btn">CANCEL</button></div>`;
+                      <input type="text" class="form-control" value="${element.value}" id="${element.id}-edit-input">
+                      <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-save-btn">Save</button>
+                      <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-cancel-btn">Cancel</button></div>`;
   const cancelBtn = document.getElementById(`${element.id}-cancel-btn`);
   cancelBtn.addEventListener("click", () => {
     const strMaxLength = 80;
