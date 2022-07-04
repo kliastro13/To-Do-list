@@ -17,13 +17,15 @@
     <div
       class="container-md d-flex flex-column shadow rounded p-0 mt-4 mb-4 border-dark"
     >
-      <header class="text-center p-2 bg-primary mb-4 rounded-top text-black-50">
+      <header
+        class="container text-center p-2 bg-primary mb-4 rounded-top text-black-50"
+      >
         <h1>Task manager</h1>
       </header>
 
-      <main class="p-4">
-        <div class="row mb-4">
-          <div class="col-9">
+      <main class="container p-4">
+        <div class="row m-0 mb-4">
+          <div class="col-10 m-0">
             <input
               type="text"
               class="form-control"
@@ -39,7 +41,7 @@
               <option value="Remember"></option>
             </datalist>
           </div>
-          <div class="col-3">
+          <div class="col-2">
             <button
               type="button"
               class="btn btn-danger w-100 fw-bold text-light"
@@ -56,11 +58,10 @@
           >
             <thead class="bg-primary">
               <tr>
-                <th scope="col" class="col-1">№</th>
-                <th scope="col" class="col-1">Date</th>
-                <th scope="col" class="col-7 text-start">Task</th>
-                <th scope="col" class="col-1">Edit</th>
-                <th scope="col" class="col-1">Delete</th>
+                <th class="col-1">№</th>
+                <th class="col-2">Date</th>
+                <th class="col-7 text-start">Task</th>
+                <th class="col-2">Actions</th>
               </tr>
             </thead>
             <tbody id="task-list"></tbody>
@@ -69,7 +70,7 @@
       </main>
 
       <footer
-        class="mt-auto text-end bg-primary rounded-bottom p-2 pe-4 text-black-50"
+        class="container mt-auto text-end bg-primary rounded-bottom p-2 pe-4 text-black-50"
       >
         <div class="row">
           <p class="m-0 fw-bold">

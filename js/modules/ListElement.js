@@ -17,8 +17,11 @@ class ListElement {
     } else {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
-    tableRow.innerHTML += `<td class="btn-container text-danger"><i class="bi bi-pencil func-btn" id="${this.id}-edit-btn"></td>`;
-    tableRow.innerHTML += `<td class="btn-container text-danger"><i class="bi bi-trash func-btn" id="${this.id}-del-btn"></td>`;
+    tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">
+                           <button class="btn btn-outline-danger btn-sm func-btn" id="${this.id}-edit-btn"><i class="bi bi-pencil"></i></button>
+                           <button class="btn btn-outline-danger btn-sm func-btn" id="${this.id}-del-btn"><i class="bi bi-trash"></i></button>
+                           </td>`;
+
     document.getElementById(taskListId).appendChild(tableRow);
 
     const editBtn = document.getElementById(`${this.id}-edit-btn`);
