@@ -10,20 +10,24 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
     />
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./scss/custom.scss" />
   </head>
 
   <body class="min-vh-100 d-flex">
     <div
       class="container-md d-flex flex-column shadow rounded p-0 mt-4 mb-4 border-dark"
     >
-      <header class="text-center p-2 bg-primary mb-4 rounded-top text-black-50">
+
+      <header
+        class="container text-center p-2 bg-primary mb-4 rounded-top text-black-50"
+      >
+ 
         <h1>Task manager</h1>
       </header>
 
-      <main class="p-4">
-        <div class="row mb-4">
-          <div class="col-9">
+      <main class="container p-4">
+        <div class="row m-0 mb-4">
+          <div class="col-10 m-0">
             <input
               type="text"
               class="form-control"
@@ -39,7 +43,7 @@
               <option value="Remember"></option>
             </datalist>
           </div>
-          <div class="col-3">
+          <div class="col-2 p-0">
             <button
               type="button"
               class="btn btn-danger w-100 fw-bold text-light"
@@ -52,23 +56,27 @@
         </div>
         <div class="table-responsive">
           <table
-            class="table table-bordered table-hover text-center border-dark align-middle"
+            class="table table-bordered table-hover text-center align-middle text-black-50"
           >
             <thead class="bg-primary text-black-50">
               <tr>
-                <th scope="col" class="col-1">№</th>
-                <th scope="col" class="col-1">Date</th>
-                <th scope="col" class="col-8 text-start">Task</th>
-                <th scope="col" class="col-1">Delete</th>
+
+                <th class="col-1">№</th>
+                <th class="col-9 text-start">Task</th>
+                <th class="col-1">Created</th>
+                <th class="col-1">Actions</th>
+
               </tr>
             </thead>
-            <tbody class="table-group-divider" id="task-list"></tbody>
+            <tbody id="task-list"></tbody>
           </table>
         </div>
       </main>
 
       <footer
-        class="mt-auto text-end bg-primary rounded-bottom p-2 pe-4 text-black-50"
+
+        class="container mt-auto text-end bg-primary rounded-bottom p-2 pe-4 text-black-50"
+
       >
         <div class="row">
           <p class="m-0 fw-bold">
@@ -78,11 +86,6 @@
       </footer>
     </div>
     <!--global_wrapper-->
-
-    <script src="js/modules/helpers.js"></script>
-    <script src="js/modules/ListElement.js"></script>
-    <script src="js/modules/eventHandlers.js"></script>
-    <script src="js/modules/persistence.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

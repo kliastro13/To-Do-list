@@ -4,17 +4,6 @@ $danger: #fcab10;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
-
-.delete-btn-container:hover {
-  background-color: $danger;
-  transition: 0.3s;
-}
-
-.delete-btn-container:hover .delete-btn {
+.func-btn:hover {
   color: $light;
-  transition: 0.3s;
-}
-
-.delete-btn {
-  cursor: pointer;
 }
