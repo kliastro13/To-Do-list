@@ -10,13 +10,14 @@ class ListElement {
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
     const strMaxLength = 80;
-    tableRow.innerHTML = `<td>${this.id}</td><td>${this.date}</td>`;
+    tableRow.innerHTML = `<td>${this.id}</td>`;
     if (this.value.length > strMaxLength) {
       const shortValue = this.value.substring(0, strMaxLength) + "...";
       tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${this.id}-value">${shortValue}</td>`;
     } else {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
+    tableRow.innerHTML += `<td>${this.date}</td>`;
     tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">
                             <button class="btn btn-outline-danger btn-sm func-btn" id="${this.id}-edit-btn">
                               <i class="bi bi-pencil"></i>
