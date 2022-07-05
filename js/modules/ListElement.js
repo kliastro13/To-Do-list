@@ -10,6 +10,7 @@ class ListElement {
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
     const strMaxLength = 80;
+
     tableRow.innerHTML = `<td>${this.id}</td>`;
     if (this.value.length > strMaxLength) {
       const shortValue = this.value.substring(0, strMaxLength) + "...";
@@ -26,6 +27,7 @@ class ListElement {
                               <i class="bi bi-trash"></i>
                             </button>
                            </td>`;
+
 
     document.getElementById(taskListId).appendChild(tableRow);
 
