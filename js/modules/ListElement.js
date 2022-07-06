@@ -19,7 +19,7 @@ class ListElement {
     } else {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
-    tableRow.innerHTML += `<td>${this.date}</td>`;
+    tableRow.innerHTML += `<td class="created">${this.date}</td>`;
     tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">${buildBtn(
       this.id
     )}</td>`;

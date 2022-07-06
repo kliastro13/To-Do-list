@@ -14,3 +14,10 @@ $danger: #fcab10;
   text-align: center;
   display: none;
 }
+
+@media screen and (max-width: 576px) {
+  .created,
+  .number {
+    display: none;
+  }
+}
