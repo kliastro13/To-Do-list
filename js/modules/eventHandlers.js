@@ -6,18 +6,11 @@ import {
 } from "./persistence";
 import { ListElement } from "./ListElement";
 import { validate, getCurrDate, showPlaceholder } from "./helpers";
+import { buildTaskItemHtml } from "./htmlBuilders";
 
 function editTaskItem(element) {
   const taskTd = document.getElementById(`${element.id}-value`);
-  taskTd.innerHTML = `<div class="input-group input-group-sm">
-                        <input type="text" class="form-control" value="${element.value}" id="${element.id}-edit-input">
-                        <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-save-btn">
-                          Save
-                        </button>
-                        <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-cancel-btn">
-                          Cancel
-                        </button>
-                      </div>`;
+  taskTd.innerHTML = buildTaskItemHtml(element);
 
   const taskItemValueShortener = () => {
     if (element.value.length > taskItemMaxLength) {

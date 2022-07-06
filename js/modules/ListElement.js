@@ -1,4 +1,5 @@
 import { taskItemMaxLength } from "../main";
+import { buildBtn } from "./htmlBuilders";
 
 class ListElement {
   constructor(id, date, value) {
@@ -19,14 +20,9 @@ class ListElement {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
     tableRow.innerHTML += `<td>${this.date}</td>`;
-    tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">
-                            <button class="btn btn-outline-danger btn-sm" id="${this.id}-edit-btn">
-                              <i class="bi bi-pencil"></i>
-                            </button>
-                            <button class="btn btn-outline-danger btn-sm" id="${this.id}-del-btn">
-                              <i class="bi bi-trash"></i>
-                            </button>
-                           </td>`;
+    tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">${buildBtn(
+      this.id
+    )}</td>`;
 
     document.getElementById(taskListId).appendChild(tableRow);
 
