@@ -22,4 +22,13 @@ function validate(value) {
   return true;
 }
 
-export { getCurrDate, validate };
+function showPlaceholder(taskList) {
+  const placeholder = document.getElementById("empty-list-div");
+  if (taskList.length === 0) {
+    placeholder.style.display = "block";
+  } else {
+    placeholder.style.display = "none";
+  }
+}
+
+export { getCurrDate, validate, showPlaceholder };

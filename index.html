@@ -17,17 +17,15 @@
     <div
       class="container-md d-flex flex-column shadow rounded p-0 mt-4 mb-4 border-dark"
     >
-
       <header
         class="container text-center p-2 bg-primary mb-4 rounded-top text-black-50"
       >
- 
         <h1>Task manager</h1>
       </header>
 
       <main class="container p-4">
         <div class="row m-0 mb-4">
-          <div class="col-10 m-0">
+          <div class="col-8 col-sm-10 m-0 ps-0">
             <input
               type="text"
               class="form-control"
@@ -43,7 +41,7 @@
               <option value="Remember"></option>
             </datalist>
           </div>
-          <div class="col-2 p-0">
+          <div class="col-4 col-sm-2 pe-0">
             <button
               type="button"
               class="btn btn-danger w-100 fw-bold text-light"
@@ -60,23 +58,22 @@
           >
             <thead class="bg-primary text-black-50">
               <tr>
-
                 <th class="col-1">№</th>
                 <th class="col-9 text-start">Task</th>
-                <th class="col-1">Created</th>
+                <th class="col-1 created">Created</th>
                 <th class="col-1">Actions</th>
-
               </tr>
             </thead>
             <tbody id="task-list"></tbody>
           </table>
         </div>
+        <div class="container empty-list-div text-black-50" id="empty-list-div">
+          No tasks found
+        </div>
       </main>
 
       <footer
-
         class="container mt-auto text-end bg-primary rounded-bottom p-2 pe-4 text-black-50"
-
       >
         <div class="row">
           <p class="m-0 fw-bold">

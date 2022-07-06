@@ -1,3 +1,6 @@
+import { taskItemMaxLength } from "../main";
+import { buildBtn } from "./htmlBuilders";
+
 class ListElement {
   constructor(id, date, value) {
     this.id = id;
@@ -9,26 +12,17 @@ class ListElement {
     const taskListId = "task-list";
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
-    const strMaxLength = 80;
-
     tableRow.innerHTML = `<td>${this.id}</td>`;
-    if (this.value.length > strMaxLength) {
-      const shortValue = this.value.substring(0, strMaxLength) + "...";
+    if (this.value.length > taskItemMaxLength) {
+      const shortValue = this.value.substring(0, taskItemMaxLength) + "...";
       tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${this.id}-value">${shortValue}</td>`;
     } else {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;
     }
-    tableRow.innerHTML += `<td>${this.date}</td>`;
-    tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">
-                            <button class="btn btn-outline-danger btn-sm func-btn" id="${this.id}-edit-btn">
-                              <i class="bi bi-pencil"></i>
-                            </button>
-                            <button class="btn btn-outline-danger btn-sm func-btn" id="${this.id}-del-btn">
-                              <i class="bi bi-trash"></i>
-                            </button>
-                           </td>`;
-
-
+    tableRow.innerHTML += `<td class="created">${this.date}</td>`;
+    tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">${buildBtn(
+      this.id
+    )}</td>`;
     document.getElementById(taskListId).appendChild(tableRow);
 
     const editBtn = document.getElementById(`${this.id}-edit-btn`);

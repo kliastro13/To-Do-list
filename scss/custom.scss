@@ -4,6 +4,20 @@ $danger: #fcab10;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
-.func-btn:hover {
-  color: $light;
+
+.btn-outline-danger {
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+}
+
+.empty-list-div {
+  text-align: center;
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .created,
+  .number {
+    display: none;
+  }
 }
