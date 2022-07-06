@@ -38,6 +38,45 @@ function editTaskItem(element) {
   });
 }
 
+function editTaskItem(element) {
+  const taskTd = document.getElementById(`${element.id}-value`);
+  taskTd.innerHTML = `<div class="input-group input-group-sm">
+                        <input type="text" class="form-control" value="${element.value}" id="${element.id}-edit-input">
+                        <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-save-btn">
+                          Save
+                        </button>
+                        <button type="button" class="btn btn-danger text-light ms-1" id="${element.id}-cancel-btn">
+                          Cancel
+                        </button>
+                      </div>`;
+
+  const formatFunc = () => {
+    const strMaxLength = 80;
+    if (element.value.length > strMaxLength) {
+      const shortValue = element.value.substring(0, strMaxLength) + "...";
+      taskTd.setAttribute("title", element.value);
+      taskTd.innerHTML = shortValue;
+    } else {
+      taskTd.innerHTML = element.value;
+    }
+  };
+
+  const cancelBtn = document.getElementById(`${element.id}-cancel-btn`);
+  cancelBtn.addEventListener("click", formatFunc);
+
+  const saveBtn = document.getElementById(`${element.id}-save-btn`);
+  saveBtn.addEventListener("click", () => {
+    const editValue = document.getElementById(`${element.id}-edit-input`).value;
+    if (!validate(editValue)) {
+      alert("You must write something!");
+      return;
+    }
+    element.value = editValue;
+    saveOrUpdateToStore(element);
+    formatFunc();
+  });
+}
+
 function deleteTaskItem(element) {
   deleteFromStore(element.id);
   for (let i = element.id - 1; i < taskList.length; i++) {

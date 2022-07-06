@@ -23,7 +23,6 @@ class ListElement {
     tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">${buildBtn(
       this.id
     )}</td>`;
-
     document.getElementById(taskListId).appendChild(tableRow);
 
     const editBtn = document.getElementById(`${this.id}-edit-btn`);
