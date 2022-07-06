@@ -1,10 +1,11 @@
+import { taskItemMaxLength } from "../main";
 import {
   saveOrUpdateToStore,
   deleteFromStore,
   readAllStore,
 } from "./persistence";
 import { ListElement } from "./ListElement";
-import { validate, getCurrDate } from "./helpers";
+import { validate, getCurrDate, showPlaceholder } from "./helpers";
 
 function editTaskItem(element) {
   const taskTd = document.getElementById(`${element.id}-value`);
@@ -18,10 +19,9 @@ function editTaskItem(element) {
                         </button>
                       </div>`;
 
-  const formatFunc = () => {
-    const strMaxLength = 80;
-    if (element.value.length > strMaxLength) {
-      const shortValue = element.value.substring(0, strMaxLength) + "...";
+  const taskItemValueShortener = () => {
+    if (element.value.length > taskItemMaxLength) {
+      const shortValue = element.value.substring(0, taskItemMaxLength) + "...";
       taskTd.setAttribute("title", element.value);
       taskTd.innerHTML = shortValue;
     } else {
@@ -30,7 +30,7 @@ function editTaskItem(element) {
   };
 
   const cancelBtn = document.getElementById(`${element.id}-cancel-btn`);
-  cancelBtn.addEventListener("click", formatFunc);
+  cancelBtn.addEventListener("click", taskItemValueShortener);
 
   const saveBtn = document.getElementById(`${element.id}-save-btn`);
   saveBtn.addEventListener("click", () => {
@@ -41,7 +41,7 @@ function editTaskItem(element) {
     }
     element.value = editValue;
     saveOrUpdateToStore(element);
-    formatFunc();
+    taskItemValueShortener();
   });
 }
 
@@ -59,6 +59,7 @@ function deleteTaskItem(element) {
     saveOrUpdateToStore(taskList[i]);
   }
   taskList.pop();
+  showPlaceholder(taskList);
 }
 
 function addTaskItem() {
@@ -78,6 +79,7 @@ function addTaskItem() {
   saveOrUpdateToStore(element);
   element.inject(editTaskItem, deleteTaskItem);
   document.getElementById(taskInputId).value = "";
+  showPlaceholder(taskList);
 }
 
 let taskList = [];
@@ -86,5 +88,7 @@ function init() {
   if (taskList.length > 0) {
     taskList.forEach((element) => element.inject(editTaskItem, deleteTaskItem));
   }
+  showPlaceholder(taskList);
 }
+
 export { addTaskItem, init };
