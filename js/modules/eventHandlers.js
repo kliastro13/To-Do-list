@@ -1,4 +1,4 @@
-import { taskItemMaxLength } from "../main";
+import { taskItemMaxLength } from "./config";
 import {
   saveOrUpdateToStore,
   deleteFromStore,
@@ -10,7 +10,7 @@ import { buildTaskItemHtml } from "./htmlBuilders";
 
 function editTaskItem(element) {
   const taskTd = document.getElementById(`${element.id}-value`);
-  taskTd.innerHTML = buildTaskItemHtml(element);
+  taskTd.innerHTML = buildTaskItemHtml(element.id, element.value);
 
   const taskItemValueShortener = () => {
     if (element.value.length > taskItemMaxLength) {
