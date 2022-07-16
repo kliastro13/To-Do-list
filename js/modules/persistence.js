@@ -14,7 +14,6 @@ function deleteFromStore(id) {
 function readAllStore(getType) {
   const keys = Object.keys(localStorage);
   const dataArray = [];
-  console.log(keys);
   for (let i = 0; i < keys.length; i++) {
     try {
       dataArray.push(
