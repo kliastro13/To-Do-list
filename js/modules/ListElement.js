@@ -1,4 +1,4 @@
-import { taskItemMaxLength } from "./config";
+import { taskItemMaxVisibleLength } from "./config";
 import { buildActionsBtnHtml } from "./htmlBuilders";
 
 class ListElement {
@@ -13,8 +13,9 @@ class ListElement {
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("id", this.id);
     tableRow.innerHTML = `<td>${this.id}</td>`;
-    if (this.value.length > taskItemMaxLength) {
-      const shortValue = this.value.substring(0, taskItemMaxLength) + "...";
+    if (this.value.length > taskItemMaxVisibleLength) {
+      const shortValue =
+        this.value.substring(0, taskItemMaxVisibleLength) + "...";
       tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${this.id}-value">${shortValue}</td>`;
     } else {
       tableRow.innerHTML += `<td class="text-start" id="${this.id}-value">${this.value}</td>`;

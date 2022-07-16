@@ -1,1 +1,2 @@
-export const taskItemMaxLength = 100;
+export const taskItemMaxVisibleLength = 100;
+export const taskItemMaxLength = 200;

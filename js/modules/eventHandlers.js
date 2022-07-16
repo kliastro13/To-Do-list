@@ -1,4 +1,4 @@
-import { taskItemMaxLength } from "./config";
+import { taskItemMaxVisibleLength } from "./config";
 import {
   saveOrUpdateToStore,
   deleteFromStore,
@@ -13,8 +13,9 @@ function editTaskItem(element) {
   taskTd.innerHTML = buildTaskItemHtml(element.id, element.value);
 
   const taskItemValueShortener = () => {
-    if (element.value.length > taskItemMaxLength) {
-      const shortValue = element.value.substring(0, taskItemMaxLength) + "...";
+    if (element.value.length > taskItemMaxVisibleLength) {
+      const shortValue =
+        element.value.substring(0, taskItemMaxVisibleLength) + "...";
       taskTd.setAttribute("title", element.value);
       taskTd.innerHTML = shortValue;
     } else {
@@ -29,7 +30,7 @@ function editTaskItem(element) {
   saveBtn.addEventListener("click", () => {
     const editValue = document.getElementById(`${element.id}-edit-input`).value;
     if (!validate(editValue)) {
-      alert("You must write something!");
+      alert("Task item should contain at least 1 char and 200 chars max!");
       return;
     }
     element.value = editValue;
@@ -59,7 +60,7 @@ function addTaskItem() {
   const taskInputId = "task-input";
   const inputValue = document.getElementById(taskInputId).value;
   if (!validate(inputValue)) {
-    alert("You must write something!");
+    alert("Task item should contain at least 1 char and 200 chars max!");
     return;
   }
   const element = new ListElement(
