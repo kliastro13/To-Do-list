@@ -30,7 +30,10 @@ class ListElement {
     editBtn.addEventListener("click", () => editTaskItem(this));
 
     const deleteBtn = document.getElementById(`${this.id}-del-btn`);
-    deleteBtn.addEventListener("click", () => deleteTaskItem(this));
+    deleteBtn.addEventListener("click", () => {
+      if (confirm("Are you sure you want to delete the task item?") == true)
+        deleteTaskItem(this);
+    });
   }
 
   delete() {
