@@ -1,3 +1,4 @@
+import { taskItemMaxLength } from "./config";
 function getCurrDate() {
   const monthFormat = 1;
   const today = new Date();
@@ -17,6 +18,9 @@ function getCurrDate() {
 
 function validate(value) {
   if (!value) {
+    return false;
+  }
+  if (value.length > taskItemMaxLength) {
     return false;
   }
   return true;
