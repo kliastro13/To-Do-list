@@ -8,6 +8,18 @@ import { ListElement } from "./ListElement";
 import { validate, getCurrDate, showPlaceholder } from "./helpers";
 import { buildTaskItemHtml } from "./htmlBuilders";
 
+function crossOutTackItem(element) {
+  const tableRow = document.getElementById(element.id);
+  if (document.getElementById(`${element.id}-check-mark`).checked) {
+    tableRow.setAttribute("class", "text-decoration-line-through");
+    element.done = true;
+  } else {
+    tableRow.setAttribute("class", "");
+    element.done = false;
+  }
+  saveOrUpdateToStore(element);
+}
+
 function editTaskItem(element) {
   const taskTd = document.getElementById(`${element.id}-value`);
   taskTd.innerHTML = buildTaskItemHtml(element.id, element.value);
@@ -49,7 +61,7 @@ function deleteTaskItem(element) {
   for (let i = element.id - 1; i < taskList.length - 1; i++) {
     taskList[i] = taskList[i + 1];
     taskList[i].id--;
-    taskList[i].inject(editTaskItem, deleteTaskItem);
+    taskList[i].inject(crossOutTackItem, editTaskItem, deleteTaskItem);
     saveOrUpdateToStore(taskList[i]);
   }
   taskList.pop();
@@ -71,7 +83,7 @@ function addTaskItem() {
 
   taskList.push(element);
   saveOrUpdateToStore(element);
-  element.inject(editTaskItem, deleteTaskItem);
+  element.inject(crossOutTackItem, editTaskItem, deleteTaskItem);
   document.getElementById(taskInputId).value = "";
   showPlaceholder(taskList);
 }
@@ -80,7 +92,9 @@ let taskList = [];
 function init() {
   taskList = readAllStore(() => new ListElement());
   if (taskList.length > 0) {
-    taskList.forEach((element) => element.inject(editTaskItem, deleteTaskItem));
+    taskList.forEach((element) =>
+      element.inject(crossOutTackItem, editTaskItem, deleteTaskItem)
+    );
   }
   showPlaceholder(taskList);
 }

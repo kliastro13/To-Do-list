@@ -17,7 +17,10 @@ function getCurrDate() {
 }
 
 function validate(value) {
-  if (!value || value.length > taskItemMaxLength) {
+  if (!value) {
+    return false;
+  }
+  if (value.length > taskItemMaxLength) {
     return false;
   }
   return true;
