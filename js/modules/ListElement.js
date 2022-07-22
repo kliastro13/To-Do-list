@@ -2,11 +2,11 @@ import { taskItemMaxVisibleLength } from "./config";
 import { buildActionsBtnHtml } from "./htmlBuilders";
 
 class ListElement {
-  constructor(id, date, value, done = false) {
+  constructor(id, date, value, completed = false) {
     this.id = id;
     this.date = date;
     this.value = value;
-    this.done = done;
+    this.completed = completed;
   }
 
   inject(crossOutTackItem, editTaskItem, deleteTaskItem) {
@@ -17,18 +17,16 @@ class ListElement {
     tableRow.innerHTML += `<td>                             
                               <input class="form-check-input" type="checkbox" value="" id="${this.id}-check-mark">                            
                            </td>`;
-    let shortValue = this.value;
-    if (this.value.length > taskItemMaxVisibleLength) {
-      shortValue = this.value.substring(0, taskItemMaxVisibleLength) + "...";
-    }
-    tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${this.id}-value">${shortValue}</td>`;
+    tableRow.innerHTML += `<td title="${this.value}" class="text-start" id="${
+      this.id
+    }-value">${this.getShortValue()}</td>`;
     tableRow.innerHTML += `<td class="created">${this.date}</td>`;
     tableRow.innerHTML += `<td class="text-danger d-flex justify-content-evenly">${buildActionsBtnHtml(
       this.id
     )}</td>`;
     document.getElementById(taskListId).appendChild(tableRow);
 
-    if (this.done === true) {
+    if (this.completed === true) {
       tableRow.setAttribute("class", "text-decoration-line-through");
       document
         .getElementById(`${this.id}-check-mark`)
@@ -50,6 +48,14 @@ class ListElement {
 
   delete() {
     document.getElementById(this.id).remove();
+  }
+
+  getShortValue() {
+    let shortValue = this.value;
+    if (this.value.length > taskItemMaxVisibleLength) {
+      shortValue = this.value.substring(0, taskItemMaxVisibleLength) + "...";
+    }
+    return shortValue;
   }
 }
 

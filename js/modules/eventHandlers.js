@@ -12,10 +12,10 @@ function crossOutTackItem(element) {
   const tableRow = document.getElementById(element.id);
   if (document.getElementById(`${element.id}-check-mark`).checked) {
     tableRow.setAttribute("class", "text-decoration-line-through");
-    element.done = true;
+    element.completed = true;
   } else {
     tableRow.setAttribute("class", "");
-    element.done = false;
+    element.completed = false;
   }
   saveOrUpdateToStore(element);
 }
